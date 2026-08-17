@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block content %}
+<div class="d-flex justify-content-between"><h1 class="h3">{{ donor.name }}</h1><div><a class="btn btn-outline-danger" href="{% url 'donor_update' donor.pk %}">Edit</a><a class="btn btn-danger" href="{% url 'blood_profile' donor.pk %}">Blood Profile</a><a class="btn btn-dark" href="{% url 'organ_profile' donor.pk %}">Organ Profile</a></div></div>
+<section class="panel mt-3"><dl class="row"><dt class="col-sm-3">Mobile</dt><dd class="col-sm-9">{{ donor.mobile_number }}</dd><dt class="col-sm-3">Blood Group</dt><dd class="col-sm-9">{{ donor.blood_group }}</dd><dt class="col-sm-3">Eligibility</dt><dd class="col-sm-9">{{ donor.eligibility_status }} - {{ donor.eligibility_reason }}</dd><dt class="col-sm-3">Location</dt><dd class="col-sm-9">{{ donor.city }}, {{ donor.district }}</dd></dl></section>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3"><h1 class="h3">Dashboard</h1><a class="btn btn-danger" href="{% url 'donor_create' %}">Register Donor</a></div>
+<div class="row g-3">
+  <div class="col-md-2"><div class="metric"><span>Total Donors</span><strong>{{ total_donors }}</strong></div></div>
+  <div class="col-md-2"><div class="metric"><span>Blood Donors</span><strong>{{ blood_donors }}</strong></div></div>
+  <div class="col-md-2"><div class="metric"><span>Organ Donors</span><strong>{{ organ_donors }}</strong></div></div>
+  <div class="col-md-2"><div class="metric"><span>Eligible</span><strong>{{ eligible_donors }}</strong></div></div>
+  <div class="col-md-2"><div class="metric"><span>Not Eligible</span><strong>{{ not_eligible_donors }}</strong></div></div>
+  <div class="col-md-2"><div class="metric"><span>Available</span><strong>{{ available_donors }}</strong></div></div>
+</div>
+<div class="row g-3 mt-2">
+  <div class="col-lg-6"><section class="panel"><h2 class="h5">Blood Group Summary</h2><table class="table"><tr><th>Group</th><th>Total</th></tr>{% for item in blood_summary %}<tr><td>{{ item.name }}</td><td>{{ item.total }}</td></tr>{% endfor %}</table></section></div>
+  <div class="col-lg-6"><section class="panel"><h2 class="h5">Recent Requests</h2><table class="table"><tr><th>Hospital</th><th>Type</th><th>Status</th></tr>{% for item in recent_requests %}<tr><td>{{ item.hospital_name }}</td><td>{{ item.request_type }}</td><td>{{ item.status }}</td></tr>{% endfor %}</table></section></div>
+</div>
+{% endblock %}
